@@ -18,18 +18,6 @@ namespace Calculadora
             InitializeComponent();
         }
         private Calculadora Calculator = new Calculadora();
-        // Los botones de las operaciones (+, -, *, /):
-        //o Si no hay ningún número en el campo de texto numérico y los pulsamos, no deben
-        //realizar ninguna acción.
-        //o Si hay un número en el campo de texto numérico deberá cargar el número
-        //correspondiente.Y ya estuvieran cargado los dos numero tendría que mostrar el
-        //resultado del cálculo correspondiente.
-        // El botón = únicamente debe hacer la acción de realizar la operación correspondiente cuando
-        //haya insertados dos números con un símbolo de operación.Luego de mostrar el resultado
-        //tendría que crear una nueva instancia del objeto Calculadora
-        // El botón. debe proporcionarnos la posibilidad de añadir números con decimales.
-        //Cuando se presiona
-
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -74,7 +62,10 @@ namespace Calculadora
                             textBox1.Text = Calculator.Multiplicacion().ToString();
                             break;
                         case '/':
-                            textBox1.Text = Calculator.Division().ToString();
+                            if (Calculator.Numero2 != 0)
+                            {
+                                textBox1.Text = Calculator.Division().ToString();
+                            }
                             break;
                         default:
                             break;
@@ -174,7 +165,10 @@ namespace Calculadora
                         textBox1.Text = Calculator.Multiplicacion().ToString();
                         break;
                     case '/':
-                        textBox1.Text = Calculator.Division().ToString();
+                        if (Calculator.Numero2 != 0)
+                        {
+                            textBox1.Text = Calculator.Division().ToString();
+                        }
                         break;
                     default:
                         break;
